@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import CharacterCard from './CharacterCard';
 
 class CharacterList extends Component {
@@ -6,17 +7,21 @@ class CharacterList extends Component {
         const charactersJSX = this.props.characters.map((character, index) => {
             return (
                 <li key={index}>
-                    <CharacterCard 
-                        index={index}
-                        image={character.image}
-                        name={character.name}
-                        species={character.species}
-                    />
+                    <Link to={`/character/${character.id}`}>
+                        <CharacterCard 
+                            index={index}
+                            image={character.image}
+                            name={character.name}
+                            species={character.species}
+                        />
+                    </Link>
                 </li>
             )
         })
         return (
-            <ul>{charactersJSX}</ul>
+            <main>
+                <ul>{charactersJSX}</ul>
+            </main>
         );
     }
 }

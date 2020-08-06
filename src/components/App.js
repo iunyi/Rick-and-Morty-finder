@@ -1,7 +1,9 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 import getDataFromApi from '../services/getDataFromApi';
 import Filter from './Filter';
 import CharacterList from './CharacterList';
+import CharacterDetail from './CharacterDetail';
 import '../stylesheets/App.scss';
 
 class App extends React.Component {
@@ -32,6 +34,7 @@ class App extends React.Component {
 
   renderFilteredCharacters() {
     const characters = this.state.data;
+    
     return characters
       .filter(character => {
         return character.name
@@ -41,11 +44,22 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.renderFilteredCharacters())
     return (
       <div className="App">
-          <Filter handleChange={this.filterName}/>
-          <CharacterList characters={this.renderFilteredCharacters()} />
+          <Switch>
+            <Route exact path="/">
+              <Filter handleChange={this.filterName}/>
+              <CharacterList characters={this.renderFilteredCharacters()} />
+            </Route>
+            <Route 
+            path="/character/:id" 
+            render={routerProps => (
+              <main className="main">
+                <CharacterDetail match={routerProps.match} name={this.detailedInfo} characters={this.renderFilteredCharacters()} />
+              </main>
+            )}
+          />
+          </Switch>
       </div>
     );
   }
