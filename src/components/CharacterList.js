@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import CharacterCard from './CharacterCard';
+import '../stylesheets/components/characterList.scss';
 
 class CharacterList extends Component {
     render() {
         const charactersJSX = this.props.characters.map((character, index) => {
             return (
-                <li key={index}>
+                <li className="list_item" key={index}>
                     <Link to={`/character/${character.id}`}>
                         <CharacterCard 
                             index={index}
@@ -19,11 +21,15 @@ class CharacterList extends Component {
             )
         })
         return (
-            <main>
-                <ul>{charactersJSX}</ul>
+            <main className="main_list">
+                <ul className="list">{charactersJSX}</ul>
             </main>
         );
     }
 }
+
+CharacterList.propTypes = {
+    characters: PropTypes.array
+};
 
 export default CharacterList;

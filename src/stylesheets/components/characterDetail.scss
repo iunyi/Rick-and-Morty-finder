@@ -1,7 +1,114 @@
-.hidden {
-     display: none;
-}
+@import '../core/variables';
+@import '../core/mixins';
 
-.censored {
-     background-color: black;
+.character_detail_container {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     background-image: url('../../images/desktop_background_detail.jpg');
+     height: 100vh;
+
+     .detailed_card {
+          position: relative;
+          background-color: rgba(0, 0, 0, 0.7);
+          box-shadow: 2px 3px 11px -1px rgba(0,0,0,0.40);
+          margin: 30px;
+          width: 300px;
+          @include tablet {
+               width: 450px;
+               padding: 30px;
+
+          }
+
+          .back {
+               position: absolute;
+               top: 5px;
+               right: 5px;
+               padding: 15px;
+               color:white;
+               :hover{
+                    color:rgb(186, 250, 90);
+               }
+          }
+
+          .card {
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               padding: 25px;
+               @include tablet {
+                    display: flex;
+                    flex-direction: row;
+                    
+               }
+
+               .card-image {
+                    width: 150px;
+                    height: 150px;
+                    border-radius: 50%;
+                    @include tablet {
+                        align-self: flex-start;
+                    }
+               }
+
+               .detail_card-text {
+                    color: white;
+                    line-height: 16px;
+                    @include tablet {
+                         padding-left: 20px;
+                    }
+               }
+
+               .censored {
+                    color: rgba(87, 51, 101, 0.1);
+                    background-color: rgba(87, 51, 101, 0.4);
+                    line-height: 8px;
+               }
+
+               .spoiler_alert {
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    width: 90%;
+                    margin: auto;
+                    padding: 15px;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    background-color: rgba(0, 0, 0, 0.5);
+
+                    .alert_title{
+                         margin: 0;
+                         color: rgb(148, 216, 12);
+                         font-size: 16px;
+                    }
+
+                    .alert_text {
+                         color: rgb(37, 143, 8);
+                         font-size: 12px;
+                    }
+
+                    .spoiler_button {
+                         display: flex;
+                         &_yes, &_no {
+                              margin: auto;
+                              margin: 0px 5px;
+                              background-color: white;
+                              color: black;
+                              border-radius: 10px;
+                              border: none;
+                         }
+                    }
+               }
+
+               .hidden {
+                    display: none;
+               }
+          }
+     }
+
+     .portal {
+          width: 150px;
+     }
 }

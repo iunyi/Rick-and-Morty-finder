@@ -1,0 +1,33 @@
+@import '../core/variables';
+@import '../core/mixins';
+
+.main_list {
+    padding: 20px;
+    background-color: black;
+    min-height: 70vh;
+
+    .list {
+        padding: 0px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+   
+        &_item {
+            display: inline-block;
+            width: 65%;
+            margin: 20px;
+            background-color: rgba(255, 255, 255, 0.091);
+            color:  rgb(59, 103, 245);
+
+            &:hover {
+                box-shadow: 0px 0px 13px 0px rgb(116, 116, 116);
+                filter:hue-rotate(200deg);
+            } 
+            @include tablet {
+                width: 200px;
+                height: 290px;
+            }
+        }
+    }
+}
