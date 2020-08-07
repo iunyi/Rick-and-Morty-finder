@@ -9,12 +9,12 @@ class Filter extends Component {
     preventDefault(ev){
         ev.preventDefault()
     }
-
+    
     render() {
         return (
             <header>
                 <form onSubmit={this.preventDefault}>
-                    <input type="text" onChange={this.props.handleChange} />
+                    <input type="text" onChange={this.props.handleChange} value={this.props.value} />
                 </form>
             </header>
         );

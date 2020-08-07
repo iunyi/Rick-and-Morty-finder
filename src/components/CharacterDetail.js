@@ -56,7 +56,7 @@ class CharacterDetail extends Component {
                         </div>
                     </div>  
                     :
-                    <p> Sin resultados </p>
+                    <p> Are you sure you </p>
                 }
             </main>
         );

@@ -34,24 +34,38 @@ class App extends React.Component {
 
   renderFilteredCharacters() {
     const characters = this.state.data;
-    
-    return characters
-      .filter(character => {
-        return character.name
-          .toUpperCase()
-          .includes(this.state.nameFilter.toUpperCase())
-      })
+
+    characters.sort((a, b) => {
+      if (a.name > b.name) {
+        return 1;
+      }
+      if (a.name < b.name) {
+        return -1;
+      }
+      return 0;
+    });
+
+    return characters.filter(character => {
+      return character.name
+        .toUpperCase()
+        .includes(this.state.nameFilter.toUpperCase())
+    })
   }
 
   render() {
     return (
       <div className="App">
-          <Switch>
-            <Route exact path="/">
-              <Filter handleChange={this.filterName}/>
-              <CharacterList characters={this.renderFilteredCharacters()} />
-            </Route>
-            <Route 
+        <Switch>
+          <Route exact path="/">
+            <Filter handleChange={this.filterName} value={this.state.nameFilter}/>
+            {
+              this.renderFilteredCharacters().length !== 0 ?
+                <CharacterList characters={this.renderFilteredCharacters()} />
+              :
+              <p>I can't seem to find a character named {this.state.nameFilter}. You might be looking in the wrong dimension!</p>
+            } 
+          </Route>
+          <Route 
             path="/character/:id" 
             render={routerProps => (
               <main className="main">
@@ -59,7 +73,7 @@ class App extends React.Component {
               </main>
             )}
           />
-          </Switch>
+        </Switch>
       </div>
     );
   }
