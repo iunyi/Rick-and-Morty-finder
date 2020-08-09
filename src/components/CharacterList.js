@@ -22,7 +22,9 @@ class CharacterList extends Component {
         })
         return (
             <main className="main_list">
-                <ul className="list">{charactersJSX}</ul>
+                <div className="wrapper">
+                    <ul className="list">{charactersJSX}</ul>
+                </div>
             </main>
         );
     }

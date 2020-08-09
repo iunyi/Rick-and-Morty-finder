@@ -46,32 +46,60 @@ class CharacterDetail extends Component {
     }
 
     render() {
-        const characters = this.props.characters;
-        const selectedCharacterId = this.props.match.params.id;
-        const matchingCharacter = characters.find(character => character.id === parseInt(selectedCharacterId));
+        const allCharacters = this.props.dataFromApi;
+        const url = window.location.href
+        const idFromURL= url.substring(url.lastIndexOf('/')+1);
+        const matchingCharacter = allCharacters.find(character => character.id === parseInt(idFromURL));
 
+        // const statusInfo = matchingCharacter.status;
+        // console.log(statusInfo);
+       
+        // const statusIcon = () => {
+        //     if(statusInfo === 'Dead') {
+        //         return <i className="fas fa-ghost"></i>
+        //     } else if(statusInfo === 'Alive') {
+        //         return <i className="fas fa-heart"></i>
+        //     } else if(statusInfo === 'unknown') {
+        //         return <i className="fas fa-question"></i>
+        //     }
+        // }
+        
         return (
             <main className="character_detail_container">
                 <div className="detailed_card">
                     <Link to="/">
                         <div className="back">
-                            <i className="fas fa-times"></i>
+                            <i className="fas fa-times"
+                                id={idFromURL}
+                            ></i>
                         </div>
                     </Link>
                     {matchingCharacter ? 
-                        <div className="card">
+                        <section className="card">
                             <img 
                                 className="card-image" 
                                 src={matchingCharacter.image} 
                                 alt={matchingCharacter.name} 
                             />
                             <div className="detail_card-text">
-                                <p>Name: {matchingCharacter.name}</p>
-                                <p>Species: {matchingCharacter.species}</p>
-                                <p>Origin: {matchingCharacter.origin.name}</p>
-                                <p>Number of episodes: {matchingCharacter.episode.length}</p>
+                                <p>
+                                    <span className="label">Name: </span> 
+                                    <span>{matchingCharacter.name}</span>
+                                </p>
+                                <p>
+                                    <span className="label">Species: </span> 
+                                    <span>{matchingCharacter.species}</span>
+                                </p>
+                                <p>
+                                    <span className="label">Origin: </span> 
+                                    <span>{matchingCharacter.origin.name}</span>
+                                </p>
+                                <p>
+                                    <span className="label">Number of episodes: </span> 
+                                    <span>{matchingCharacter.episode.length}</span>
+                                </p>
                                 <div className="status">
-                                    Status:&nbsp;
+                                    <span className="label">Status:&nbsp;</span>
                                     <span className="censored">_______</span>
                                     <span className="spoiler hidden"> {matchingCharacter.status}</span>
                                     <div className="spoiler_alert">
@@ -84,7 +112,7 @@ class CharacterDetail extends Component {
                                     </div>
                                 </div>
                             </div>
-                        </div>  
+                        </section>  
                         :
                         <p> The entered URL does not exist. </p>
                     }

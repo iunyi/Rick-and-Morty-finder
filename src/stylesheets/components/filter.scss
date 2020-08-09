@@ -19,13 +19,12 @@
         @include tablet {
             display: none;
         }
-    
     }
     
     .form_container {
         position: relative;
         @include tablet {
-            top: 360px
+            top: 42%
         }
 
         .form {
@@ -35,16 +34,18 @@
             align-items: center;
     
             &_input {
+                font-family: 'Rajdhani', sans-serif;
                 border-radius: 15px;
                 border: none;
                 width: 200px;
                 padding: 5px 10px;
-                background-color: rgba(70, 70, 70, 0.5);
-                color:  rgb(82, 120, 245);
+                background-color: rgba(26, 26, 26, 0.5);
+                color:  rgb(230, 169, 104);
             }
 
             ::placeholder {
-                color: rgb(155, 155, 155);
+                font-family: 'Rajdhani', sans-serif;
+                color: rgb(155, 178, 252);
             }
         }
         
@@ -52,6 +53,10 @@
             position: absolute;
             bottom: 33px;
             left: 195px;
+            color: rgb(52, 141, 249);
+            &:hover {
+                color:rgb(52, 98, 249);
+            }
         }
     }
 }
@@ -73,6 +78,7 @@
         .logo {
             width: 50%;
             padding: 10px;
+            filter: hue-rotate(45deg);
             @include tablet {
                 width: 30%;
                 padding: 30px;
@@ -99,22 +105,28 @@
             }
 
             &_input {
+                font-family: 'Rajdhani', sans-serif;
                 border-radius: 15px;
                 border: none;
                 width: 200px;
                 padding: 5px 10px;
-                background-color: rgba(70, 70, 70, 0.5);
-                color:  rgb(82, 120, 245);
+                background-color: rgba(26, 26, 26, 0.5);
+                color:  rgb(230, 169, 104);
             }
 
             ::placeholder {
-                color: rgb(155, 155, 155);
+                font-family: 'Rajdhani', sans-serif;
+                color: rgb(155, 178, 252);
             }
         }
         .fa-search {
             position: absolute;
             bottom: 5px;
             left: 195px;
+            color: rgb(52, 141, 249);
+            &:hover {
+                color:rgb(52, 98, 249);
+            }
         }
     }
 }

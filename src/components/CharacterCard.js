@@ -9,14 +9,32 @@ class CharacterCard extends Component {
             name, 
             species
         } = this.props;
+
+        const speciesIcon = () => {
+            if(species === 'Human') {
+                return (
+                    <span>
+                        <i className="fas fa-meh"></i>
+                    </span>
+                )
+            } else if(species === 'Alien') {
+                return <span role="img" aria-label="alien">👾</span>
+            } 
+        }
         
         return (
             <React.Fragment>
                 <div className="image_container">
                     <img className="image_size" src={image} alt={name}/>
                 </div>
-                <h3 className="character_name">{name}</h3>
-                <p className="character_species">{species}</p>
+                <div className="text_container">
+                    <h3 className="character_name">
+                        {name} 
+                    </h3>
+                    <span className="character_species">
+                            {speciesIcon()}
+                    </span>
+                </div>
             </React.Fragment>
         );
     }

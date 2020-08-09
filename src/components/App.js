@@ -88,6 +88,7 @@ class App extends React.Component {
 							name={this.detailedInfo} 
 							characters={this.renderFilteredCharacters()} 
 							checkAllCharacters={this.checkAllCharacters}
+							dataFromApi={this.state.data}
 						/>
 					)}
 				/>

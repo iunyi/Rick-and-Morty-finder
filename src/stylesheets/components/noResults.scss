@@ -9,7 +9,10 @@
     align-items: center;
     background-image: url('../../images/no_results.png');
     background-size: cover;
-    background-position: center;
+    background-position: bottom;
+    @include tablet {
+        height: 60vh;
+    }
 
     .no_results {
         width: 50%;
@@ -19,9 +22,10 @@
         color:  rgb(82, 120, 245);
         font-size: 18px;
         background-color: rgba(0, 0, 0, 0.7);
-        transform: translateY(-70px);
+        transform: translateY(-90px);
         @include desktop {
             width: 30%;
+            transform: translateY(-140px);
         }
     }
 }
