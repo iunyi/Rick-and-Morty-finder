@@ -3,7 +3,7 @@
 
 .main_list {
     padding: 20px;
-    background-color: $color-dark;
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(31,24,54,1)  100% );   
     min-height: 70vh;
 
     .wrapper {
@@ -19,12 +19,31 @@
                 min-width: 190px;
                 height: 255px;
                 margin: 20px;
-                border-radius: 10px;
-                background-color: rgba(255, 255, 255, 0.091);
+                background-color: rgb(32, 30, 39);
+                border-radius: 8px;
+                overflow: hidden;
+
                 color: $color-primary;
                 &:hover {
-                    box-shadow: 0px 0px 13px 0px rgb(116, 116, 116);
-                    filter:hue-rotate(200deg);
+                    box-shadow: 0px 0px 24px 0px rgb(0, 251, 255);
+                    background-color: white;
+                    color: $color-primary;
+                    .image_container {
+                        filter:hue-rotate(200deg);
+                        .image_size {
+                            width:120%;
+                            animation: grow 1s ease forwards;
+                            @keyframes grow {
+                                0% {
+                                    width:190px;
+                                }
+                                100% {
+                                    width:220px;
+                                    margin:-15px;
+                                }
+                            }
+                        }
+                    }
                 } 
                 @include tablet {
                     height: 255px;
