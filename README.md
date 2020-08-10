@@ -14,5 +14,4 @@ npm install
 ```sh
 npm start
 ```
-# ❗️
 Parece que algún portal hacia otro universo paralelo se ha quedado abierto.
