@@ -13,6 +13,7 @@ class CharacterDetail extends Component {
         this.dontShowInfo = this.dontShowInfo.bind(this);
         this.handlePortalClick = this.handlePortalClick.bind(this);
         this.getRandomNumber = this.getRandomNumber.bind(this);
+        this.showSpoilerAlert = this.showSpoilerAlert.bind(this);
     }
 
     // Get a random number to show a random character
@@ -24,9 +25,21 @@ class CharacterDetail extends Component {
         });
     };
 
+    showSpoilerAlert(){
+        const status = document.querySelector('.status');
+        status.classList.remove('hidden');
+        const spoiler = document.querySelector('.spoiler');
+        spoiler.classList.add('hidden');
+        const spoilerAlert = document.querySelector('.spoiler_alert');
+        spoilerAlert.classList.remove('hidden');
+        const censored = document.querySelector('.censored');
+        censored.classList.remove('hidden');
+    }
+    
     handlePortalClick(){
         this.getRandomNumber();
         this.props.checkAllCharacters();
+        this.showSpoilerAlert();
     }
 
     showInfo(){
@@ -50,19 +63,6 @@ class CharacterDetail extends Component {
         const url = window.location.href
         const idFromURL= url.substring(url.lastIndexOf('/')+1);
         const matchingCharacter = allCharacters.find(character => character.id === parseInt(idFromURL));
-
-        // const statusInfo = matchingCharacter.status;
-        // console.log(statusInfo);
-       
-        // const statusIcon = () => {
-        //     if(statusInfo === 'Dead') {
-        //         return <i className="fas fa-ghost"></i>
-        //     } else if(statusInfo === 'Alive') {
-        //         return <i className="fas fa-heart"></i>
-        //     } else if(statusInfo === 'unknown') {
-        //         return <i className="fas fa-question"></i>
-        //     }
-        // }
         
         return (
             <main className="character_detail_container">
