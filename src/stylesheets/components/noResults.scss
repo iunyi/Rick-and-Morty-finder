@@ -3,10 +3,8 @@
 
 .no_results_container {
     height: 85vh;
-    display: flex;
+    @include center;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     background-image: url('../../images/no_results.png');
     background-size: cover;
     background-position: bottom;
@@ -19,7 +17,7 @@
         margin: 0;
         padding: 10px 0;
         text-align: center;
-        color:  rgb(82, 120, 245);
+        color: $color-primary;
         font-size: 18px;
         background-color: rgba(0, 0, 0, 0.7);
         transform: translateY(-90px);

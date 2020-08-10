@@ -1,3 +1,5 @@
+@import './core/variables';
+
 *{
   list-style-type: none;
   text-decoration: none;
@@ -6,5 +8,5 @@
 
 body {
   margin: 0;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: $font-primary;
 }

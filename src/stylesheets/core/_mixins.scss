@@ -1,11 +1,23 @@
 @mixin tablet {
-    @media all and (min-width: $tablet) {
-      @content;
-    }
-  }
+	@media all and (min-width: $tablet) {
+		@content;
+  	}
+}
   
-  @mixin desktop {
-    @media all and (min-width: $desktop) {
-      @content;
-    }
+@mixin desktop {
+  	@media all and (min-width: $desktop) {
+    	@content;
+  	}
+}
+
+@mixin center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin column-center {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }

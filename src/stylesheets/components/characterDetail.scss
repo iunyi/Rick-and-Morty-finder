@@ -2,10 +2,8 @@
 @import '../core/mixins';
 
 .character_detail_container {
-     display: flex;
+     @include center;
      flex-direction: column;
-     justify-content: center;
-     align-items: center;
      background-image: url('../../images/desktop_background_detail.jpg');
      height: 100vh;
 
@@ -18,7 +16,6 @@
           @include tablet {
                width: 400px;
                padding: 30px;
-
           }
 
           .back {
@@ -26,16 +23,14 @@
                top: 5px;
                right: 5px;
                padding: 15px;
-               color:rgb(2, 148, 181);
+               color: $color-secondary;
                :hover{
-                    color:white;
+                    color:$color-light;
                }
           }
 
           .card {
-               display: flex;
-               flex-direction: column;
-               align-items: center;
+               @include column-center;
                padding: 25px;
                @include tablet {
                     display: flex;
@@ -53,14 +48,14 @@
                }
 
                .detail_card-text {
-                    color: white;
+                    color: $color-light;
                     line-height: 16px;
                     @include tablet {
                          padding-left: 20px;
                     }
 
                     .label {
-                         color: rgb(2, 148, 181);
+                         color: $color-secondary;
                     }
                }
 
@@ -91,7 +86,7 @@
                }
 
                .fa-heart {
-                    color: rgb(148, 216, 12);
+                    color: $color-alert-title;
                     animation: beat 5s ease infinite;
                }
 
@@ -121,24 +116,22 @@
                }
 
                .spoiler_alert {
+                    @include column-center;
                     border: 1px solid rgba(255, 255, 255, 0.2);
                     width: 90%;
                     margin: auto;
                     padding: 15px;
                     margin-top: 20px;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
                     background-color: rgba(0, 0, 0, 0.5);
 
                     .alert_title{
                          margin: 0;
-                         color: rgb(148, 216, 12);
+                         color: $color-alert-title;
                          font-size: 16px;
                     }
 
                     .alert_text {
-                         color: rgb(37, 143, 8);
+                         color: $color-alert-text;
                          font-size: 12px;
                     }
 
@@ -153,8 +146,8 @@
                               border-radius: 10px;
                               border: none;
                               &:hover {
-                                   color: rgb(0, 0, 0);
-                                   background-color: white;
+                                   color: $color-dark;
+                                   background-color: $color-light;
                               }
                          }
                     }
