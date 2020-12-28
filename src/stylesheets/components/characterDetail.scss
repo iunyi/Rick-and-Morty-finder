@@ -132,15 +132,11 @@
       .spoiler_alert {
         @include column-center;
         border: 1px solid rgba(255, 255, 255, 0.2);
-        //    width: 60%;
         margin: auto;
         padding: 15px;
         margin-top: 20px;
         background-color: rgba(0, 0, 0, 0.5);
 
-        //    @include tablet {
-        //      width: 90%;
-        //    }
         .alert_title {
           margin: 0;
           color: $color-alert-title;
@@ -180,7 +176,7 @@
   .portal {
     width: 60px;
     position: absolute;
-    bottom: 40px;
+    bottom: 20px;
     left: 50vw;
     transform: translateX(-50%);
 
