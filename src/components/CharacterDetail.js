@@ -18,10 +18,16 @@ class CharacterDetail extends Component {
 
     // Get a random number to show a random character
     min = 1;
-    max = 20;
+    max = 120;
     getRandomNumber = () => {
+        let randomNumber = parseInt(this.min + (Math.random() * (this.max - this.min)));
+
+        if (randomNumber > 100) {
+            randomNumber += 80
+        }
+        
         this.setState({
-          random: parseInt(this.min + (Math.random() * (this.max - this.min)))
+          random: randomNumber
         });
     };
 
