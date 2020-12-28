@@ -59,10 +59,8 @@ class CharacterDetail extends Component {
     }
 
     render() {
-        const allCharacters = this.props.dataFromApi;
         const url = window.location.href
         const idFromURL= url.substring(url.lastIndexOf('/')+1);
-        const matchingCharacter = allCharacters.find(character => character.id === parseInt(idFromURL));
         
         return (
             <main className="character_detail_container">
@@ -74,37 +72,37 @@ class CharacterDetail extends Component {
                             ></i>
                         </div>
                     </Link>
-                    {matchingCharacter ? 
+                    {this.props.character ? 
                         <section className="card">
                             <img 
                                 className="card-image" 
-                                src={matchingCharacter.image} 
-                                alt={matchingCharacter.name} 
+                                src={this.props.character.image} 
+                                alt={this.props.character.name} 
                             />
                             <div className="detail_card-text">
                                 <p>
                                     <span className="label">Name: </span> 
-                                    <span>{matchingCharacter.name}</span>
+                                    <span>{this.props.character.name}</span>
                                 </p>
                                 <p>
                                     <span className="label">Species: </span> 
-                                    <span>{matchingCharacter.species}</span>
+                                    <span>{this.props.character.species}</span>
                                 </p>
                                 <p>
                                     <span className="label">Origin: </span> 
-                                    <span>{matchingCharacter.origin.name}</span>
+                                    <span>{this.props.character.origin.name}</span>
                                 </p>
                                 <p>
                                     <span className="label">Number of episodes: </span> 
-                                    <span>{matchingCharacter.episode.length}</span>
+                                    <span>{this.props.character.episode.length}</span>
                                 </p>
                                 <div className="status">
                                     <span className="label">Status:&nbsp;</span>
                                     <span className="censored">_______</span>
-                                    <span className="spoiler hidden"> {matchingCharacter.status}</span>
+                                    <span className="spoiler hidden"> {this.props.character.status}</span>
                                     <div className="spoiler_alert">
                                         <h4 className="alert_title">Spoiler alert!</h4>
-                                        <p className="alert_text">Are you sure you want to check whether {matchingCharacter.name} is alive?</p>
+                                        <p className="alert_text">Are you sure you want to check whether {this.props.character.name} is alive?</p>
                                         <div className="spoiler_button">
                                             <button className="spoiler_button_yes" onClick={this.showInfo}>YES</button>
                                             <button className="spoiler_button_no" onClick={this.dontShowInfo}>Not yet!</button>

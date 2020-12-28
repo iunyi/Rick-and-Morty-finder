@@ -17,6 +17,7 @@ class App extends React.Component {
 		this.filterName = this.filterName.bind(this);
 		this.renderFilteredCharacters = this.renderFilteredCharacters.bind(this);
 		this.checkAllCharacters = this.checkAllCharacters.bind(this);
+		this.getMatchingCharacter = this.getMatchingCharacter.bind(this)
 	}
 
 	componentDidMount(){
@@ -62,6 +63,18 @@ class App extends React.Component {
 		})
 	}
 
+	getMatchingCharacter(props) {
+		const routeCharacterID = parseInt(props.match.params.id);
+		const character = (this.state.data).find(character => character.id === routeCharacterID);
+		if (!character) return 
+		return (
+			<CharacterDetail 
+				character={character} 
+				checkAllCharacters={this.checkAllCharacters}
+			/>
+		)
+	}
+
 	render() {
 		return (
 			<div className="App">
@@ -81,16 +94,8 @@ class App extends React.Component {
 					} 
 				</Route>
 				<Route 
-					path="/character/:id" 
-					render={routerProps => (
-						<CharacterDetail 
-							match={routerProps.match} 
-							name={this.detailedInfo} 
-							characters={this.renderFilteredCharacters()} 
-							checkAllCharacters={this.checkAllCharacters}
-							dataFromApi={this.state.data}
-						/>
-					)}
+					path="/character/:id"
+					render={this.getMatchingCharacter}
 				/>
 				</Switch>
 			</div>
