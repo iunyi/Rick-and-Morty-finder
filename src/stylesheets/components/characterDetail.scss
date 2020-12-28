@@ -2,170 +2,196 @@
 @import '../core/mixins';
 
 .character_detail_container {
-     @include center;
-     flex-direction: column;
-     background-image: url('../../images/desktop_background_detail.jpg');
-     height: 100vh;
+  @include center;
+  flex-direction: column;
+  background-image: url('../../images/desktop_background_detail.jpg');
+  background-size: cover;
+  height: 100vh;
 
-     .detailed_card {
-          position: relative;
-          background-color: rgba(0, 0, 0, 0.7);
-          box-shadow: 2px 3px 11px -1px rgba(0,0,0,0.40);
-          margin: 30px;
-          width: 300px;
-          @include tablet {
-               width: 400px;
-               padding: 30px;
-          }
+  .detailed_card {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 2px 3px 11px -1px rgba(0, 0, 0, 0.4);
+    height: 100vh;
+    width: 100vw;
+    justify-self: center;
+    display: flex;
+    align-items: center;
 
-          .back {
-               position: absolute;
-               top: 5px;
-               right: 5px;
-               padding: 15px;
-               color: $color-secondary;
-               :hover{
-                    color:$color-light;
-               }
-          }
+    @include tablet {
+      width: 400px;
+      height: 350px;
+      padding: 30px;
+      margin: 30px;
+    }
 
-          .card {
-               @include column-center;
-               padding: 25px;
-               @include tablet {
-                    display: flex;
-                    flex-direction: row;
-                    
-               }
+    .back {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      padding: 15px;
+      color: $color-secondary;
+      :hover {
+        color: $color-light;
+      }
+    }
 
-               .card-image {
-                    width: 150px;
-                    height: 150px;
-                    border-radius: 50%;
-                    @include tablet {
-                        align-self: flex-start;
-                    }
-               }
+    .card {
+      @include column-center;
+      padding: 25px;
+      width: 100vw;
+      margin-bottom: 40px;
+      @include tablet {
+        width: 400px;
+        display: flex;
+        flex-direction: row;
+      }
 
-               .detail_card-text {
-                    color: $color-light;
-                    line-height: 16px;
-                    @include tablet {
-                         padding-left: 20px;
-                    }
-
-                    .label {
-                         color: $color-secondary;
-                    }
-               }
-
-               .censored {
-                    color: rgba(87, 51, 101, 0.1);
-                    background-color: rgba(87, 51, 101, 0.4);
-                    line-height: 8px;
-               }
-
-               .fa-ghost {
-                    color: rgba(255, 255, 255, 0.55);
-                    animation: die 2.5s ease infinite;
-               }
-
-               @keyframes die {
-                    0% {
-                         transform: translateY(5px);
-                         color: rgba(255, 255, 255, 0.55);
-                    }
-                    70% {
-                         transform: translateY(-15px);
-                         color: rgba(255, 255, 255, 0);
-                    }
-                    100% {
-                         transform: translateY(-15px);
-                         color: rgba(255, 255, 255, 0);
-                    }
-               }
-
-               .fa-heart {
-                    color: $color-alert-title;
-                    animation: beat 5s ease infinite;
-               }
-
-               @keyframes beat {
-                    0% {
-                      transform:scale(1);
-                    }
-                    5% {
-                      transform:scale(1.25);
-                    }
-                    20% {
-                      transform:scale(1);
-                    }
-                    30% {
-                      transform:scale(1);
-                    }
-                    35% {
-                      transform:scale(1.25);
-                    }
-                    50% {
-                      transform:scale(1);
-                    }
-               }
-
-               .fa-question {
-                    color: rgb(79, 191, 174);
-               }
-
-               .spoiler_alert {
-                    @include column-center;
-                    border: 1px solid rgba(255, 255, 255, 0.2);
-                    width: 90%;
-                    margin: auto;
-                    padding: 15px;
-                    margin-top: 20px;
-                    background-color: rgba(0, 0, 0, 0.5);
-
-                    .alert_title{
-                         margin: 0;
-                         color: $color-alert-title;
-                         font-size: 16px;
-                    }
-
-                    .alert_text {
-                         color: $color-alert-text;
-                         font-size: 12px;
-                    }
-
-                    .spoiler_button {
-                         display: flex;
-
-                         &_yes, &_no {
-                              margin: auto;
-                              margin: 0px 5px;
-                              background-color: rgba(255, 255, 255, 0.7);
-                              color: rgb(58, 58, 58);
-                              border-radius: 10px;
-                              border: none;
-                              &:hover {
-                                   color: $color-dark;
-                                   background-color: $color-light;
-                              }
-                         }
-                    }
-               }
-
-               .hidden {
-                    display: none;
-               }
-          }
-     }
-
-     .portal {
+      .card-image {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        @include tablet {
           width: 150px;
-          &:hover {
-               filter:hue-rotate(100deg);
+          height: 150px;
+          align-self: flex-start;
+          margin-top: 20px;
+        }
+      }
+
+      .detail_card-text {
+        color: $color-light;
+        line-height: 16px;
+        width: 60%;
+
+        @include tablet {
+          padding-left: 20px;
+        }
+
+        .label {
+          color: $color-secondary;
+        }
+      }
+
+      .censored {
+        color: rgba(87, 51, 101, 0.1);
+        background-color: rgba(87, 51, 101, 0.4);
+        line-height: 8px;
+      }
+
+      .fa-ghost {
+        color: rgba(255, 255, 255, 0.55);
+        animation: die 2.5s ease infinite;
+      }
+
+      @keyframes die {
+        0% {
+          transform: translateY(5px);
+          color: rgba(255, 255, 255, 0.55);
+        }
+        70% {
+          transform: translateY(-15px);
+          color: rgba(255, 255, 255, 0);
+        }
+        100% {
+          transform: translateY(-15px);
+          color: rgba(255, 255, 255, 0);
+        }
+      }
+
+      .fa-heart {
+        color: $color-alert-title;
+        animation: beat 5s ease infinite;
+      }
+
+      @keyframes beat {
+        0% {
+          transform: scale(1);
+        }
+        5% {
+          transform: scale(1.25);
+        }
+        20% {
+          transform: scale(1);
+        }
+        30% {
+          transform: scale(1);
+        }
+        35% {
+          transform: scale(1.25);
+        }
+        50% {
+          transform: scale(1);
+        }
+      }
+
+      .fa-question {
+        color: rgb(79, 191, 174);
+      }
+
+      .spoiler_alert {
+        @include column-center;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        //    width: 60%;
+        margin: auto;
+        padding: 15px;
+        margin-top: 20px;
+        background-color: rgba(0, 0, 0, 0.5);
+
+        //    @include tablet {
+        //      width: 90%;
+        //    }
+        .alert_title {
+          margin: 0;
+          color: $color-alert-title;
+          font-size: 16px;
+        }
+
+        .alert_text {
+          color: $color-alert-text;
+          font-size: 12px;
+        }
+
+        .spoiler_button {
+          display: flex;
+
+          &_yes,
+          &_no {
+            margin: auto;
+            margin: 0px 5px;
+            background-color: rgba(255, 255, 255, 0.7);
+            color: rgb(58, 58, 58);
+            border-radius: 10px;
+            border: none;
+            &:hover {
+              color: $color-dark;
+              background-color: $color-light;
+            }
           }
-          &:active {
-               filter:hue-rotate(60deg);
-          }
-     }
+        }
+      }
+
+      .hidden {
+        display: none;
+      }
+    }
+  }
+
+  .portal {
+    width: 60px;
+    position: absolute;
+    bottom: 40px;
+    left: 50vw;
+    transform: translateX(-50%);
+
+    @include tablet {
+      width: 150px;
+    }
+    &:hover {
+      filter: hue-rotate(100deg);
+    }
+    &:active {
+      filter: hue-rotate(60deg);
+    }
+  }
 }
